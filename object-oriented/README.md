@@ -18,10 +18,10 @@ function Cat() {}
 Cat.prototype = new Animal();
 
 var cat = new Cat();
-var result = cat.yelp(); // 我会叫
+cat.yelp(); // 我会叫
 ```
 
-`URL` <https://jsfiddle.net/Martin_nett/t1uq4fyb/3/>
+`URL` <https://jsfiddle.net/Martin_nett/h4eyw7fw/>
 
 从以上代码可以看出，`Cat` 并没有 `yelp` 方法，该方法是通过指定了原型为 `Animal` 来继承得到的。其过程为 `Cat` 首先查找自身有没有 `yelp` 方法，如果没有则到其原型中查找，由于这时它的原型为 `Animal` ，而 `Animal` 正好拥有 `yelp` 方法，从而程序将执行该方法。JavaScript 通常以此实现方法来模拟面向对象的继承机制。
 
@@ -86,7 +86,7 @@ as.sound(new Cat()); // 喵~
 as.sound(new Dog()); // 汪~
 ```
 
-`URL` <https://jsfiddle.net/Martin_nett/20g1bras/1/>
+`URL` <https://jsfiddle.net/Martin_nett/c2kgdqcd/>
 
 ## 封装
 
@@ -105,3 +105,5 @@ var man = (function() {
 console.log(man.getName()); // martin
 console.log(man._name); // undefined
 ```
+
+`URL` <https://jsfiddle.net/Martin_nett/etdedn6j/>
