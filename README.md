@@ -1,10 +1,10 @@
 # JavaScript 设计模式
 总结 JavaScript 开发中的设计模式
 
-一、面向对象重要概念
-* 继承
-* 多态
-* 封装
+一、[面向对象重要概念](https://github.com/martinnett/javascript_patterns/tree/master/object-oriented)
+* [继承](https://github.com/martinnett/javascript_patterns/tree/master/object-oriented#继承)
+* [多态](https://github.com/martinnett/javascript_patterns/tree/master/object-oriented#多态)
+* [封装](https://github.com/martinnett/javascript_patterns/tree/master/object-oriented#封装)
 
 二、创建型模式
 * 单例模式（Singleton）
