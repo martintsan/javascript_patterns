@@ -4,7 +4,7 @@
 
 ## 继承
 
-由于 JavaScript 语言本身不具备继承的机制，因此其继承往往是通过原型链来实现，代码如下：
+由于 JavaScript 语言本身不具备类和接口的支持，因此我们可以通过原型链来模拟继承效果，代码如下：
 
 ```javascript
 // 父类 Animal
@@ -24,6 +24,40 @@ cat.yelp(); // 我会叫
 `URL` <https://jsfiddle.net/Martin_nett/h4eyw7fw/>
 
 从以上代码可以看出，`Cat` 并没有 `yelp` 方法，该方法是通过指定了原型为 `Animal` 来继承得到的。其过程为 `Cat` 首先查找自身有没有 `yelp` 方法，如果没有则到其原型中查找，由于这时它的原型为 `Animal` ，而 `Animal` 正好拥有 `yelp` 方法，从而程序将执行该方法。JavaScript 通常以此实现方法来模拟面向对象的继承机制。
+
+如果有传入参数，则需要通过借用构造函数，来模拟实现类式继承，代码如下：
+
+```javascript
+function Man(name) {
+  this.name = name;
+}
+
+Man.prototype.getName = function() {
+  return this.name;
+}
+
+function Child(name, gender) {
+  // 调用超类 Man 的构造函数，并将 name 参数传入
+  Man.call(this, name);
+  this.gender = gender;
+}
+
+Child.prototype = new Man();
+
+Child.prototype.getProfile = function() {
+  return this.name + ' ' + this.gender;
+}
+
+var boy = new Child('小明', '男');
+var girl = new Child('小红', '女');
+
+boy.getName(); // 小明
+boy.getProfile(); // 小明 男
+girl.getName(); // 小红
+girl.getProfile(); // 小红 女
+```
+
+`URL` <https://jsfiddle.net/Martin_nett/2c34h3nd/>
 
 ## 多态
 
